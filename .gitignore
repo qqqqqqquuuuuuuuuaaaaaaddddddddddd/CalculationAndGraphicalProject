@@ -1,2 +1,6 @@
 .git
 .vs
+
+# Compiled project
+./x64
+./CalculationAndGraphicWork/x64
