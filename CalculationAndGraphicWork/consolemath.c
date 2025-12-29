@@ -46,47 +46,101 @@ float SolveEquation(EquationSolvingMethods solvingMethod, float a, float b)
 	case BISECTION:
 		return SolveEquationUsingBisection(a, b);
 	case CHORD:
-		return SolveEquationUsingChord();
+		return SolveEquationUsingChord(a, b);
 	}
 }
 
-float SolveIntegral(IntegralSolvingMethods solvingMethod)
+float SolveIntegral(IntegralSolvingMethods solvingMethod, float a, float b)
 {
-	return 0.0f;
+	switch (solvingMethod)
+	{
+	case RECTANGLE:
+		return SolveIntegralUsingRectangle(a, b);
+	case TRAPEZOID:
+		return SolveIntegralUsingTrapezoid(a, b);
+	}
 }
 
-#define EQUATION_FUNC(X) (powf((X), 3) + 3 * (X) + 2)
 static float SolveEquationUsingBisection(float a, float b)
 {
-	float step = 0.001f;
-	float x1 = EQUATION_FUNC(a);
-	float x2 = EQUATION_FUNC(b);
+	float epsilon = 0.0001f;
+	float funcA = EQUATION_FUNC(a);
+	float funcB = EQUATION_FUNC(b);
+	float funcMid = NAN;
+	float dx = NAN;
 	int iteration = 0;
 
-	while (fabs(b - a) > step)
-	{
-		float xi = (a + b) / 2;
-		float x = EQUATION_FUNC(xi);
+	if (fabsf(funcA) < epsilon) return a;
+	if (fabsf(funcB) < epsilon) return b;
+	if (funcA * funcB >= 0) return NAN;
 
-		if ((x < 0 && x1 < 0) || (x > 0 && x1 > 0))
+	do
+	{
+		dx = (a + b) / 2.0f;
+		funcMid = EQUATION_FUNC(dx);
+		if (fabsf(funcMid) <= epsilon) return dx;
+		if (funcA * funcMid < 0)
 		{
-			a = xi;
-			x1 = EQUATION_FUNC(a);
+			b = dx;
+			funcB = funcMid;
 		}
 		else
 		{
-			b = xi;
-			x2 = EQUATION_FUNC(b);
+			a = dx;
+			funcA = funcMid;
 		}
 
-		printf("Итерация %i: %f\n", iteration, xi);
 		iteration++;
+	} while (fabsf(b - a) >= epsilon);
+
+	return (a + b) / 2.0f;
+}
+
+
+static float SolveEquationUsingChord(float a, float b)
+{
+	float funcA = EQUATION_FUNC(a);
+	float funcB = EQUATION_FUNC(b);
+	float bNext = 0.f;
+	float epsilon = 0.001f;
+	int iteration = 0;
+	
+	do
+	{
+		bNext = b - (a - b) / (funcA - funcB) * funcB;
+		b = bNext;
+		funcB = EQUATION_FUNC(b);
+	} while (fabsf(funcB) >= epsilon);
+
+	return b;
+}
+
+static float SolveIntegralUsingRectangle(float a, float b)
+{
+	const int n = 18;
+	const float step = (b - a) / n;
+	float s = 0.f;
+	for (int i = 0; i < n; i++)
+	{
+		s += step * INTEGRAL_FUNC(a);
+		a += step;
 	}
 
-	return (a + b) / 2;
+	return s;
 }
 
-static float SolveEquationUsingChord()
+static float SolveIntegralUsingTrapezoid(float a, float b)
 {
+	const int n = 18;
+	const float step = (b - a) / n;
+	float s = (INTEGRAL_FUNC(a) + INTEGRAL_FUNC(b)) * 0.5f;
+	for (int i = 1; i < n - 1; i++)
+	{
+		a += step;
+		s += INTEGRAL_FUNC(a);
+	}
 
+	s *= step;
+	return s;
 }
+

@@ -14,4 +14,5 @@ void PrintChoiceMessages(int choice, int previousChoice);
 void PrintAuthors(HANDLE consoleHandle);
 
 void DrawCharts(HANDLE consoleHandle, float arr[16]);
-void DrawEquationValuesTable(HANDLE consoleHandle, EquationSolvingMethods solvingMethod);
+void DrawEquationValuesTable(HANDLE consoleHandle);
+void DrawIntegralValuesTable(HANDLE consoleHandle);

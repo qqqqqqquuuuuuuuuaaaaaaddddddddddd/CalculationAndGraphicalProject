@@ -1,7 +1,14 @@
-﻿  consolemath.c
-E:\Repository\CalculationAndGraphicWork\CalculationAndGraphicWork\consolemath.c(49,10): warning C4013: SolveEquationUsingChord: нет определения; предполагается "extern" с возвратом типа "int"
-E:\Repository\CalculationAndGraphicWork\CalculationAndGraphicWork\consolemath.c(49,10): warning C4244: return: преобразование "int" в "float", возможна потеря данных
-E:\Repository\CalculationAndGraphicWork\CalculationAndGraphicWork\consolemath.c(89,14): warning C4142: "SolveEquationUsingChord": неопасное переопределение типа
-E:\Repository\CalculationAndGraphicWork\CalculationAndGraphicWork\consolemath.c(51,1): warning C4715: SolveEquation: значение возвращается не при всех путях выполнения
-E:\Repository\CalculationAndGraphicWork\CalculationAndGraphicWork\consolemath.c(92,1): warning C4716: SolveEquationUsingChord: должна возвращать значение
+﻿  consoleprinting.c
+E:\Repository\CalculationAndGraphicWork\CalculationAndGraphicWork\consoleprinting.c(321,51): warning C4028: формальный параметр 2 отличается от объявления
+E:\Repository\CalculationAndGraphicWork\CalculationAndGraphicWork\consoleprinting.c(367,30): warning C4244: функция: преобразование "float" в "int", возможна потеря данных
+E:\Repository\CalculationAndGraphicWork\CalculationAndGraphicWork\consoleprinting.c(367,62): warning C4244: функция: преобразование "float" в "int", возможна потеря данных
+E:\Repository\CalculationAndGraphicWork\CalculationAndGraphicWork\consoleprinting.c(368,32): warning C4244: функция: преобразование "float" в "int", возможна потеря данных
+E:\Repository\CalculationAndGraphicWork\CalculationAndGraphicWork\consoleprinting.c(368,68): warning C4244: функция: преобразование "float" в "int", возможна потеря данных
+E:\Repository\CalculationAndGraphicWork\CalculationAndGraphicWork\consoleprinting.c(371,42): warning C4244: функция: преобразование "float" в "int", возможна потеря данных
+E:\Repository\CalculationAndGraphicWork\CalculationAndGraphicWork\consoleprinting.c(371,80): warning C4244: функция: преобразование "float" в "int", возможна потеря данных
+E:\Repository\CalculationAndGraphicWork\CalculationAndGraphicWork\consoleprinting.c(377,30): warning C4244: функция: преобразование "float" в "int", возможна потеря данных
+E:\Repository\CalculationAndGraphicWork\CalculationAndGraphicWork\consoleprinting.c(378,32): warning C4244: функция: преобразование "float" в "int", возможна потеря данных
+E:\Repository\CalculationAndGraphicWork\CalculationAndGraphicWork\consoleprinting.c(382,42): warning C4244: функция: преобразование "float" в "int", возможна потеря данных
+E:\Repository\CalculationAndGraphicWork\CalculationAndGraphicWork\consoleprinting.c(382,89): warning C4244: функция: преобразование "float" в "int", возможна потеря данных
+E:\Repository\CalculationAndGraphicWork\CalculationAndGraphicWork\consoleprinting.c(399,19): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
   CalculationAndGraphicWork.vcxproj -> E:\Repository\CalculationAndGraphicWork\x64\Debug\CalculationAndGraphicWork.exe
